@@ -8,8 +8,8 @@ from subprocess import PIPE, Popen
 # Initial State settings
 BUCKET_NAME = ":computer: Processes"
 BUCKET_KEY = "pr1208"
-ACCESS_KEY = "ist_MHf4ux3Hngs2MrF-y2lJfICBXGSbBkmd"
-PROCESS_NAME = "AdGuardHome"
+ACCESS_KEY = "your key"
+PROCESS_NAME = "a process name"
 # Set the time between checks
 MINUTES_BETWEEN_READS = 15
 # ---------------------------------

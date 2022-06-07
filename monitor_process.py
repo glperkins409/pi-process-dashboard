@@ -6,23 +6,23 @@ from subprocess import PIPE, Popen
 
 # --------- User Settings ---------
 # Initial State settings
-BUCKET_NAME = ":computer: Processes" 
+BUCKET_NAME = ":computer: Processes"
 BUCKET_KEY = "pr1208"
-ACCESS_KEY = "PLACE YOUR INITIAL STATE ACCESS KEY HERE"
-PROCESS_NAME = "PLACE THE NAME OF YOUR PROCESS HERE"
+ACCESS_KEY = "ist_MHf4ux3Hngs2MrF-y2lJfICBXGSbBkmd"
+PROCESS_NAME = "AdGuardHome"
 # Set the time between checks
 MINUTES_BETWEEN_READS = 15
 # ---------------------------------
 
 def main():
 	if len(sys.argv) != 2:
-		print "Usage: " + sys.argv[0] + " <pid>"
+		print("Usage: " + sys.argv[0] + " <pid>")
 		exit()
 	pid = sys.argv[1]
 
 	streamer = Streamer(bucket_name=BUCKET_NAME, bucket_key=BUCKET_KEY, access_key=ACCESS_KEY)
 	if psutil.pid_exists(int(pid)) == False:
-		print "Error: That process doesn't exist! Exiting ..."
+		print("Error: That process doesn't exist! Exiting ...")
 		exit()
 	else:
 		streamer.log(PROCESS_NAME,"Running")
@@ -37,7 +37,7 @@ def main():
 			streamer.log(PROCESS_NAME,"Running")
 			process = Popen(['hostname', '-I'], stdout=PIPE)
 			output, _error = process.communicate()
-			streamer.log(PROCESS_NAME + " IP Address", output.rstrip())
+			streamer.log(PROCESS_NAME + " IP Address", output.rstrip().decode())
 			streamer.flush()
 		time.sleep(60*MINUTES_BETWEEN_READS)
 

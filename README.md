@@ -12,3 +12,5 @@ In this tutorial, we will use a couple of simple scripts to:
 - create an email/SMS notification when a process exits
 
 [Read More ...](https://github.com/initialstate/pi-process-dashboard/wiki)
+
+This branch has been tweaked for Python 3.
